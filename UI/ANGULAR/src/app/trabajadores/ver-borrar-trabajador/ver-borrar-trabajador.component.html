@@ -1,0 +1,108 @@
+<!-- Button trigger modal -->
+
+
+
+<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()">
+    Agregar Trabajador
+</button>
+<app-barra-buscar 
+(onEnter)="buscar( $event )"
+placeholder="Buscar por Nombre de Trabajador" ></app-barra-buscar>
+
+<hr>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="!employeeList.length">
+<strong>Sin resultados </strong> 
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>  
+
+<table class="table table-striped ">
+ 
+    <thead>
+        <tr>
+            <th>Trabajador Numero</th>
+            <th>Trabajador Nombre</th>
+            <th>Trabajador Tarifa</th>
+            <th>Oficio</th>
+            <th>Trabajador Supervisor</th>
+            <th>Opciones</th>
+
+
+
+
+        </tr>
+
+    </thead>
+    <tbody >
+        <tr *ngFor="let item of employeeList | paginate: { itemsPerPage: 10, currentPage: p }">
+            <td>{{item.trabajadorNum}}</td>
+            <td>{{item.trabajadorNomb}}</td>
+            <td>{{item.trabajadorTarif}}</td>
+            <td>{{item.oficio}}</td>
+            <td>{{item.trabajadorSuper}}</td>
+            <td>
+                <button class="btn btn-primary  btn-sm mx-1" (click)="verTrabajador(item.trabajadorid)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fas fa-eye"></i></button>
+                
+                <button type="button" class="btn btn-sm btn-info ms-1 "data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="editClick(item)" >
+                <i class="fas fa-pencil-alt text-light"></i> 
+                </button>
+
+                <button class="btn btn-sm btn-danger ms-1 "  (click)="eliminarClick(item)">
+                    <i class="fas fa-trash-alt text-light"></i>
+
+                </button>
+            </td>
+
+        </tr>
+      
+       
+
+    </tbody>
+</table>
+  <pagination-controls class="text-center"  previousLabel="Anterior"
+  nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">{{ModalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="closeClick()"></button>
+      </div>
+      <div class="modal-body">
+        <app-editar-agregar-trabajador [emp]="emp" *ngIf="ActivateAddEditEmpComp"></app-editar-agregar-trabajador>
+        <ul class="list-group" *ngFor="let item of detalleTrabajador">
+          <div *ngIf="verDetalleTrabajador">
+              <li class="list-group-item"><strong>Trabajador Numero:</strong> {{item.trabajadorNum}}</li>
+              <li class="list-group-item"><strong>Trabajador Nombre:</strong> {{item.trabajadorNomb}}</li>
+              <li class="list-group-item"><strong>Trabajador Tarifa</strong> {{item.trabajadorTarif}}</li>
+              <li class="list-group-item"><strong>Oficio:</strong> {{item.oficio}}</li>
+              <li class="list-group-item"><strong>Trabajador Supervisor:</strong> {{item.trabajadorSuper}}</li>
+          </div>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"   (click)="closeClick()">
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-editar-agregar-trabajador [emp]="emp" *ngIf="ActivateAddEditEmpComp"></app-editar-agregar-trabajador>
+        </div>
+      
+      </div>
+    </div>
+  </div>

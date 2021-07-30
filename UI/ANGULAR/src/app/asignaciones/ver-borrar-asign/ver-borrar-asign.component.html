@@ -1,0 +1,79 @@
+
+  <!-- Button trigger modal -->
+  
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+  (click)="abrirModalAgregar()">
+    Agregar Asignacion
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="cerrarModalAgregar()"></button>
+        </div>
+        <div class="modal-body">
+          <app-editar-agregar-asign [asignacion]="asignacion" *ngIf="modalActivo"></app-editar-agregar-asign>
+          <ul class="list-group" *ngFor="let asign of detalleAsignacion">
+            <div *ngIf="verDetalleAsignacion">
+                <li class="list-group-item"><strong>ID #: </strong> {{asign.asignacionid}}</li>
+                <li class="list-group-item"><strong>Numero de edificio: </strong> {{asign.edificioNum_fk}}</li>
+                <li class="list-group-item"><strong>Numero del trabajador: </strong> {{asign.trabajadorNum_fk}}</li>
+                <li class="list-group-item"><strong>Asignaciones #: </strong> {{asign.asigNum}}</li>
+                <li class="list-group-item"><strong>Fecha de asignación: </strong> {{asign.asigFechIni | date: 'dd/MM/yyyy'}}</li>
+                <li class="list-group-item"><strong>Asignación NO. dias: </strong> {{asign.asigNumDias}}</li>
+                
+            </div>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <app-barra-buscar 
+  (onEnter)="buscar( $event )"
+  placeholder="Buscar Numero de asignacion">
+ </app-barra-buscar> -->
+  
+<hr>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID#</th>
+        <th>Numero de edificio </th>
+        <th>Numero del trabajador</th>
+        <th>Asignaciones #</th>
+        <th>Fecha de asignación</th>
+        <th>Asignación NO. dias</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let asignacion of asignaciones | paginate: { itemsPerPage: 10, currentPage: p } ">
+          <td>{{asignacion.asignacionid}}</td>
+          <td>{{asignacion.edificioNum_fk}}</td>
+          <td>{{asignacion.trabajadorNum_fk}}</td>
+          <td>{{asignacion.asigNum}}</td>
+          <td>{{asignacion.asigFechIni}}</td>
+          <td>{{asignacion.asigNumDias}}</td>
+            <td> 
+              <button class="btn btn-primary  btn-sm mx-1" (click)="verAsignacion(asignacion.asignacionid)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i class="fas fa-eye"></i></button>
+              <button class="btn btn-info btn-sm mx-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              (click)="abrirModalEditar(asignacion)"><i class="fas fa-pencil-alt text-light"></i></button>
+              <button class="btn btn-danger  btn-sm mx-1" (click)="eliminarAsignaciones(asignacion.asignacionid)"><i class="fas fa-trash-alt text-light"></i></button>
+               
+                 
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="text-center"  previousLabel="Anterior"
+  nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+
+  
+   

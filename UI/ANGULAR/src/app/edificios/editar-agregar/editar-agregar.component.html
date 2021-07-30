@@ -1,0 +1,33 @@
+
+
+    <div class="mb-3">
+      <label for="edificioId" class="form-label">ID #</label>
+      <input type="number"  [value]="edificiosId"  id="edificioId" aria-describedby="emailHelp" disabled readonly>
+    </div>
+    <div class="mb-3">
+      <label for="edificio#" class="form-label">Edificio #</label>
+      <input type="text" [(ngModel)]="edificioNum" class="form-control" id="edificio#">
+    </div>
+    <div class="mb-3">
+      <label for="edificioDireccion" class="form-label">Edificio direccion</label>
+      <input type="text" [(ngModel)]="edificioDireccion" class="form-control" id="edificioDireccion">
+    </div>
+    <div class="mb-3">
+      <label for="tipoEdificio" class="form-label">Tipo edificio</label>
+      <input type="text" [(ngModel)]="tipoEdif"  class="form-control" id="tipoEdificio">
+    </div>
+    <div class="mb-3">
+      <label for="nivelCalidad" class="form-label">Nivel calidad</label>
+      <input type="number"  [(ngModel)]="nivelCal" class="form-control" id="nivelCalidad">
+    </div>
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoria</label>
+      <input type="number"  [(ngModel)]="categor" class="form-control" id="categoria">
+    </div>
+
+    
+
+    <button (click)="agregarEdificio()" class="btn btn-primary mx-2" *ngIf="edificio.edificiosId==0">Guardar</button>
+    <button (click)="actualizarEdificio()" class="btn btn-info "   *ngIf="edificio.edificiosId!=0">Guardar cambios</button>
+
+

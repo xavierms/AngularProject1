@@ -1,0 +1,41 @@
+
+<div class="form-group ">
+
+    <label class="mt-2">Nombre Trabajador</label>
+    <div class="mt-2">
+        <input type="text" class="form-control" [(ngModel)]="trabajadorNomb"
+        placeholder="Ingrese Nombre del Trabajador" required>
+    </div>
+    <label class="mt-2">Numero de Trabajador</label>
+    <div class="mt-2">
+        <input type="number" class="form-control" [(ngModel)]="trabajadorNum"
+        placeholder="Ingrese Numero del Trabajador" required>
+    </div>
+    <label class="mt-2">Tarifa Trabajador</label>
+    <div class="mt-2">
+        <input type="number" class="form-control" [(ngModel)]="trabajadorTarif"
+        placeholder="Ingrese Tarifa del Trabajador" required>
+    </div>
+    <label class="mt-2">Oficio Trabajador</label>
+    <div class="mt-2">
+        <input type="text" class="form-control" [(ngModel)]="oficio"
+        placeholder="Ingrese Oficio del Trabajador" required>
+    </div>
+    <label class="mt-2">Supervisor Trabajador</label>
+    <div class="mt-2">
+        <input type="number" class="form-control" [(ngModel)]="trabajadorSuper"
+        placeholder="Ingrese Supervisor del Trabajador" required>
+    </div>
+</div>
+
+
+
+<button (click)="agregarTrabajador()" *ngIf="emp.trabajadorid==0 "  class="btn btn-primary  mt-3 float-end" data-bs-dismiss="modal" 
+[disabled]="trabajadorNomb=='' || trabajadorNum.length== 0 || trabajadorTarif.length== 0 || oficio== '' || trabajadorSuper.length== 0">
+    Añadir
+</button>
+
+<button (click)="actualizarTrabajador()" *ngIf="emp.trabajadorid!=0" class="btn btn-primary mt-3 float-end" data-bs-dismiss="modal"
+[disabled]="trabajadorNomb=='' || trabajadorNum.length== 0 || trabajadorTarif.length== 0 || oficio== '' || trabajadorSuper.length== 0">
+    Update
+</button>

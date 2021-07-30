@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+.font-effect-shadow-multiple{
+    font-family: Rancho;
+    font-size: 72px;
+    text-align: center;
+    
+}

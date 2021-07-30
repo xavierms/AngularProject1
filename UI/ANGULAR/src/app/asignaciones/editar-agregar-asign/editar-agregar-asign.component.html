@@ -1,0 +1,34 @@
+
+
+    <div class="mb-3">
+        
+      </div>
+      <div class="mb-3">
+        <label for="EdificioNum_fk" class="form-label">Numero de edificio:</label>
+        <input type="number"  [(ngModel)]="EdificioNum_fk" class="form-control" id="EdificioNum_fk">
+      </div>
+      <div class="mb-3">
+        <label for="TrabajadorNum_fk" class="form-label">Numero del trabajador:</label>
+        <input type="number"  [(ngModel)]="TrabajadorNum_fk" class="form-control" id="TrabajadorNum_fk">
+      </div>
+      <div class="mb-3">
+        <label for="AsigNum#" class="form-label">Asignaciones: #</label>
+        <input type="number" [(ngModel)]="AsigNum" class="form-control" id="AsigNum#">
+      </div>
+      <div class="mb-3">
+        <label for="AsigFechIni" class="form-label">Fecha de asignación:</label>
+        <input type="date" [(ngModel)]="AsigFechIni" class="form-control" id="AsigFechIni">
+      </div>
+      <div class="mb-3">
+        <label for="AsigNumDias" class="form-label">Asignación NO. dias:</label>
+        <input type="number" [(ngModel)]="AsigNumDias"  class="form-control" id="AsigNumDias">
+      </div>
+      
+  
+      
+  
+      <button (click)="agregarAsignaciones()" class="btn btn-primary mx-2" *ngIf="asignacion.Asignacionid==0">Guardar</button>
+      <button (click)="actualizarAsignaciones()" class="btn btn-info "   *ngIf="asignacion.Asignacionid!=0">Guardar cambios</button>
+  
+  
+  

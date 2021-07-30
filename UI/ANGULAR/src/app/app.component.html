@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="trabajadores"><img id="homeI" src="https://res.cloudinary.com/dr1hlsicm/image/upload/v1627500545/LogosSisalril_002_o7oupz.png" height="100px"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav nav-tabs">
+           <li class="nav-item">
+             <a class="nav-link " routerLink="trabajadores" aria-current="page" >Trabajadores</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" routerLink="edificios">Edificios</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" routerLink="asignaciones">Asignaciones</a>
+           </li>
+          </ul>  
+    </div>
+    <h1 class="font-effect-shadow-multiple">PRUEBA SISALRIL</h1>
+  </div>
+  
+</nav>
+<!--fin navbar-->
+
+</div>
+<div class="container mt-5">
+  <router-outlet></router-outlet> 
+</div>
+
+<!-- <div class="container mt-5">
+  <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <button routerLink="trabajadores" class="btn btn-outline-primary mx-2">Trabajadores</button>
+                </li>
+            <li class="nav-item">
+              <button routerLink="edificios" class="btn btn-outline-primary mx-2">Edificios</button>
+            </li>
+            <li class="nav-item">
+              <button routerLink="asignaciones" class="btn btn-outline-primary mx-2">Asignaciones</button>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    <div class="mt-2">
+      <h1 class="home">PRUEBA SISALRIL<img id="homeI" src="https://res.cloudinary.com/dr1hlsicm/image/upload/v1627500545/LogosSisalril_002_o7oupz.png" height="120px"></h1>
+    </div>
+  <router-outlet></router-outlet> 
+</div>
+ -->

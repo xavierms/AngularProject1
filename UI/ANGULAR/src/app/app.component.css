@@ -1,0 +1,17 @@
+.home{
+   
+    font-size: 250%;
+    text-align:right;
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;  /*don't forget to set a duration! */
+    text-shadow: 2px 2px 5px blue;
+    color: rgb(211, 211, 211);  
+} 
+
+@keyframes example {
+    0%   {background-color:rgb(255, 255, 255); left:0px; top:0px;}
+    65%  {background-color:rgba(255, 255, 255, 0.274); left:0px; top:200px;}
+    100% {background-color:rgba(255, 255, 255, 0.274); left:0px; top:0px;}
+  }
+
+  
